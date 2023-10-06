@@ -14,7 +14,7 @@ import (
 const version = "1.0.1"
 
 func init() {
-
+	log.SetLevel(log.DebugLevel) 
 	cfg, err := config.GetConfig()
 	if err != nil {
 		//return nil
