@@ -72,6 +72,7 @@ func getConfig() Config {
 		log.Fatal("Could not find config in: ", configPath)
 	}
 	file, err := ioutil.ReadFile(configPath)
+	log.Debug("Hello")
 	log.Debug("YAML content:", string(file))
 	err = yaml.Unmarshal([]byte(file), &cfg)
 	if err != nil {
