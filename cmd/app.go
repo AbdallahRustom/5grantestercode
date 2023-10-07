@@ -14,7 +14,6 @@ import (
 const version = "1.0.1"
 
 func init() {
-	log.SetLevel(log.DebugLevel) 
 	cfg, err := config.GetConfig()
 	if err != nil {
 		//return nil
@@ -62,7 +61,7 @@ func init() {
 }
 
 func main() {
-
+	log.SetLevel(log.DebugLevel) 
 	app := &cli.App{
 		Commands: []*cli.Command{
 			{

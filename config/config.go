@@ -59,12 +59,14 @@ type Config struct {
 }
 
 func RootDir() string {
+	log.SetLevel(log.DebugLevel) 
 	_, b, _, _ := runtime.Caller(0)
 	d := path.Join(path.Dir(b))
 	return filepath.Dir(d)
 }
 
 func getConfig() Config {
+	log.SetLevel(log.DebugLevel) 
 	var cfg = Config{}
 	Ddir := RootDir()
 	configPath, err := filepath.Abs(Ddir + "/config/config.yml")
