@@ -60,14 +60,12 @@ type Config struct {
 
 
 func RootDir() string {
-	log.SetLevel(log.DebugLevel) 
 	_, b, _, _ := runtime.Caller(0)
 	d := path.Join(path.Dir(b))
 	return filepath.Dir(d)
 }
 
 func getConfig() Config {
-	log.SetLevel(log.DebugLevel) 
 	var cfg = Config{}
 	Ddir := RootDir()
 	configPath, err := filepath.Abs(Ddir + "/config/config.yml")
@@ -92,7 +90,6 @@ func GetConfig() (Config, error) {
 		return Config{}, nil
 	}
 	file, err := ioutil.ReadFile(configPath)
-	log.Debug("YAML content:", string(file))
 	err = yaml.Unmarshal([]byte(file), &cfg)
 	if err != nil {
 		return Config{}, nil
